@@ -1,0 +1,88 @@
+export const API_URL = import.meta.env.VITE_API_URL || 'https://legal-api.doaide.com';
+
+export const TOOLS = [
+  {
+    id: 'rental-agreement',
+    title: 'Rental Agreement',
+    description: 'Indian standard rental/lease agreement with customizable clauses',
+    icon: '🏠',
+    category: 'Property',
+  },
+  {
+    id: 'nda',
+    title: 'NDA Generator',
+    description: 'Non-disclosure agreement — mutual or one-way',
+    icon: '🤐',
+    category: 'Business',
+  },
+  {
+    id: 'offer-letter',
+    title: 'Offer Letter',
+    description: 'Standard employment offer letter with compensation breakdown',
+    icon: '💼',
+    category: 'Employment',
+  },
+  {
+    id: 'freelancer-contract',
+    title: 'Freelancer Contract',
+    description: 'Service agreement for freelancers with IP and payment terms',
+    icon: '📝',
+    category: 'Business',
+  },
+  {
+    id: 'invoice',
+    title: 'Invoice Generator',
+    description: 'Professional GST invoice with CGST/SGST/IGST',
+    icon: '🧾',
+    category: 'Finance',
+  },
+  {
+    id: 'power-of-attorney',
+    title: 'Power of Attorney',
+    description: 'General or special POA with witness details',
+    icon: '⚖️',
+    category: 'Legal',
+  },
+  {
+    id: 'partnership-deed',
+    title: 'Partnership Deed',
+    description: 'Partnership agreement with capital and profit sharing',
+    icon: '🤝',
+    category: 'Business',
+  },
+  {
+    id: 'resignation-letter',
+    title: 'Resignation Letter',
+    description: 'Professional resignation with notice period details',
+    icon: '👋',
+    category: 'Employment',
+  },
+  {
+    id: 'experience-certificate',
+    title: 'Experience Certificate',
+    description: 'Work experience letter with responsibilities and rating',
+    icon: '📜',
+    category: 'Employment',
+  },
+  {
+    id: 'salary-slip',
+    title: 'Salary Slip',
+    description: 'Monthly salary slip with Basic, HRA, DA, PF, ESI, PT',
+    icon: '💰',
+    category: 'Employment',
+  },
+  {
+    id: 'legal-notice',
+    title: 'Legal Notice',
+    description: 'Formal legal notice with facts, grounds, and relief',
+    icon: '⚠️',
+    category: 'Legal',
+  },
+  {
+    id: 'affidavit',
+    title: 'Affidavit',
+    description: 'Sworn affidavit for various purposes',
+    icon: '📋',
+    category: 'Legal',
+  },
+];
