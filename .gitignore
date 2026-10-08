@@ -5,3 +5,7 @@ __pycache__/
 *.pyc
 venv/
 .vite/
+
+# Environment
+.env*
+!.env.example
