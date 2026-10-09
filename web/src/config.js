@@ -109,4 +109,12 @@ export const TOOLS = [
     category: 'Compliance',
     aiPowered: true,
   },
+  {
+    id: 'legal-document-checker',
+    title: 'Legal Document Checker',
+    description: 'AI-powered analysis of your legal documents for issues and improvements',
+    icon: '🔍',
+    category: 'Compliance',
+    aiPowered: true,
+  },
 ];

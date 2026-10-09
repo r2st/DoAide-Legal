@@ -247,6 +247,23 @@ def test_missing_required_field():
     assert resp.status_code == 422
 
 
+def test_legal_document_checker_validation():
+    resp = client.post("/api/legal-document-checker", json={})
+    assert resp.status_code == 422
+
+
+def test_legal_document_checker_missing_text():
+    resp = client.post("/api/legal-document-checker", json={"document_type": "nda"})
+    assert resp.status_code == 422
+
+
+def test_legal_document_checker_defaults():
+    from models import LegalDocumentCheckerRequest
+    req = LegalDocumentCheckerRequest(document_text="Sample contract text")
+    assert req.document_type == "general"
+    assert req.jurisdiction == "India"
+
+
 def test_format_inr():
     from generators import format_inr
     assert format_inr(1000) == "₹1,000.00"

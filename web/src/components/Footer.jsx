@@ -23,6 +23,7 @@ export default function Footer() {
               <li><Link to="/privacy-policy" className="hover:text-brand-gold">Privacy Policy Generator</Link></li>
               <li><Link to="/terms-of-service" className="hover:text-brand-gold">Terms of Service Generator</Link></li>
               <li><Link to="/contract-clause-library" className="hover:text-brand-gold">Contract Clause Library</Link></li>
+              <li><Link to="/legal-document-checker" className="hover:text-brand-gold">Legal Document Checker</Link></li>
             </ul>
           </div>
           <div>

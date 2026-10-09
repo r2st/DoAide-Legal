@@ -26,6 +26,19 @@ export async function generateClauses(data) {
   return res.json();
 }
 
+export async function checkDocument(data) {
+  const res = await fetch(`${API_URL}/api/legal-document-checker`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: 'Analysis failed' }));
+    throw new Error(err.detail || 'Document analysis failed');
+  }
+  return res.json();
+}
+
 export function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');

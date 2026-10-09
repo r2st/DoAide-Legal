@@ -23,6 +23,14 @@ export default function Home() {
           operatingSystem: 'Web',
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
           author: { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' },
+          featureList: '16 free legal document templates, AI-powered generators, PDF and DOCX download, No login required',
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'DoAide',
+          url: 'https://doaide.com',
+          sameAs: [],
         })}</script>
       </Helmet>
       <Header />
@@ -52,7 +60,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-brand-dark">15</div>
+              <div className="text-2xl md:text-3xl font-bold text-brand-dark">16</div>
               <div className="text-sm text-gray-500">Free Tools</div>
             </div>
             <div>
@@ -118,7 +126,7 @@ export default function Home() {
             <div>
               <div className="w-12 h-12 bg-brand-gold text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-3">1</div>
               <h3 className="font-semibold mb-1">Choose a Template</h3>
-              <p className="text-sm text-gray-500">Pick from 15 legal document templates designed for India.</p>
+              <p className="text-sm text-gray-500">Pick from 16 legal document templates designed for India.</p>
             </div>
             <div>
               <div className="w-12 h-12 bg-brand-gold text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-3">2</div>

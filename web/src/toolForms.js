@@ -652,4 +652,33 @@ export const toolForms = {
     ],
     defaults: { clause_type: 'confidentiality', industry: 'general' },
   },
+
+  'legal-document-checker': {
+    title: 'Legal Document Checker',
+    metaTitle: 'Free AI Legal Document Checker for India | DoAide Legal',
+    metaDescription: 'Paste any legal document and get an AI-powered analysis with issues, missing clauses, and improvement suggestions. Compliant with Indian law. Free, no login.',
+    aiPowered: true,
+    isDocumentChecker: true,
+    sections: [
+      {
+        heading: 'Document Details',
+        fields: [
+          { name: 'document_type', label: 'Document Type', type: 'select', options: [
+            { value: 'general', label: 'General / Unknown' },
+            { value: 'nda', label: 'Non-Disclosure Agreement' },
+            { value: 'rental-agreement', label: 'Rental / Lease Agreement' },
+            { value: 'service-agreement', label: 'Service / Freelancer Agreement' },
+            { value: 'employment-contract', label: 'Employment Contract' },
+            { value: 'partnership-deed', label: 'Partnership Deed' },
+            { value: 'privacy-policy', label: 'Privacy Policy' },
+            { value: 'terms-of-service', label: 'Terms of Service' },
+            { value: 'power-of-attorney', label: 'Power of Attorney' },
+          ], required: true },
+          { name: 'jurisdiction', label: 'Jurisdiction', type: 'select', options: ['India', 'Global'] },
+          { name: 'document_text', label: 'Paste Your Document Text', type: 'textarea', required: true, rows: 12, placeholder: 'Paste the full text of your legal document here for analysis...' },
+        ],
+      },
+    ],
+    defaults: { document_type: 'general', jurisdiction: 'India' },
+  },
 };

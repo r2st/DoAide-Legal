@@ -81,6 +81,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://legal.doaide.com/legal-document-checker</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://legal.doaide.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -97,6 +102,21 @@
   </url>
   <url>
     <loc>https://legal.doaide.com/blog/freelancer-contract-india-essential-clauses</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://legal.doaide.com/blog/rental-agreement-india-everything-you-need-to-know</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://legal.doaide.com/blog/terms-of-service-india-website-app-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://legal.doaide.com/blog/legal-document-review-checklist-india</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -8,6 +8,7 @@ from models import (
     ExperienceCertificateRequest, SalarySlipRequest,
     LegalNoticeRequest, AffidavitRequest,
     PrivacyPolicyRequest, TermsOfServiceRequest, ContractClauseRequest,
+    LegalDocumentCheckerRequest,
 )
 from generators import pdf_generator, docx_generator
 from llm import generate_with_gemini, extract_json_from_response
@@ -212,6 +213,24 @@ Details:
 - Industry: {data.industry}
 
 Generate 3-5 variations of the clause from basic to comprehensive. Each clause should be ready to copy-paste into a contract. Include usage notes for each variation. Use professional Indian legal language compliant with the Indian Contract Act 1872."""
+
+    text = await generate_with_gemini(prompt)
+    result = extract_json_from_response(text)
+    return JSONResponse(content=result)
+
+
+@app.post("/api/legal-document-checker")
+async def legal_document_checker(data: LegalDocumentCheckerRequest):
+    prompt = f"""Analyze this legal document for an Indian legal context. Return ONLY valid JSON with this structure:
+{{"document_type": "detected type", "overall_score": 1-10, "summary": "brief summary", "issues": [{{"severity": "high/medium/low", "title": "issue title", "description": "what is wrong", "suggestion": "how to fix it"}}], "strengths": ["list of things done well"], "missing_clauses": ["clauses that should be added"], "compliance_notes": "relevant Indian law compliance notes"}}
+
+Document Type Context: {data.document_type}
+Jurisdiction: {data.jurisdiction}
+
+DOCUMENT TEXT:
+{data.document_text[:8000]}
+
+Analyze for: missing clauses, ambiguous language, enforceability issues under Indian law, compliance with relevant Indian statutes (Contract Act 1872, IT Act 2000, DPDP Act 2023, Consumer Protection Act 2019 as applicable), and overall quality. Be specific and actionable in your suggestions."""
 
     text = await generate_with_gemini(prompt)
     result = extract_json_from_response(text)

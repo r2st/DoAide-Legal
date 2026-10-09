@@ -271,3 +271,9 @@ class ContractClauseRequest(BaseModel):
     party_b: str = ""
     governing_state: str = ""
     industry: str = "general"
+
+
+class LegalDocumentCheckerRequest(BaseModel):
+    document_text: str
+    document_type: str = "general"
+    jurisdiction: str = "India"

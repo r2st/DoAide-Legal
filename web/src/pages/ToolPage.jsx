@@ -8,7 +8,7 @@ import ListField from '../components/ListField';
 import ShareButtons from '../components/ShareButtons';
 import { toolForms } from '../toolForms';
 import { TOOLS } from '../config';
-import { generateDocument, downloadBlob, generateClauses } from '../api';
+import { generateDocument, downloadBlob, generateClauses, checkDocument } from '../api';
 
 function InvoiceItems({ items, setItems }) {
   const addItem = () => setItems([...items, { description: '', quantity: 1, rate: 0, hsn_code: '' }]);
@@ -132,6 +132,7 @@ export default function ToolPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [clauses, setClauses] = useState(null);
+  const [checkerResult, setCheckerResult] = useState(null);
 
   if (!config || !toolMeta) {
     return (
@@ -197,6 +198,21 @@ export default function ToolPage() {
       setClauses(result);
     } catch (err) {
       setError(err.message || 'Failed to generate clauses');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDocumentCheck = async () => {
+    setLoading(true);
+    setError('');
+    setCheckerResult(null);
+    try {
+      const submitData = buildSubmitData();
+      const result = await checkDocument(submitData);
+      setCheckerResult(result);
+    } catch (err) {
+      setError(err.message || 'Failed to analyze document');
     } finally {
       setLoading(false);
     }
@@ -270,7 +286,18 @@ export default function ToolPage() {
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">{error}</div>
           )}
 
-          {config.isClauseLibrary ? (
+          {config.isDocumentChecker ? (
+            <div className="pt-4">
+              <button
+                type="button"
+                onClick={handleDocumentCheck}
+                disabled={loading}
+                className="w-full bg-brand-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
+              >
+                {loading ? 'Analyzing Document (AI)...' : 'Analyze Document'}
+              </button>
+            </div>
+          ) : config.isClauseLibrary ? (
             <div className="pt-4">
               <button
                 type="button"
@@ -324,6 +351,77 @@ export default function ToolPage() {
                 )}
               </div>
             ))}
+          </div>
+        )}
+
+        {checkerResult && (
+          <div className="mt-8 space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold text-gray-900">Analysis Results</h2>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-500">Score:</span>
+                <span className={`text-lg font-bold ${checkerResult.overall_score >= 7 ? 'text-green-600' : checkerResult.overall_score >= 4 ? 'text-yellow-600' : 'text-red-600'}`}>
+                  {checkerResult.overall_score}/10
+                </span>
+              </div>
+            </div>
+
+            {checkerResult.summary && (
+              <div className="p-4 bg-gray-50 rounded-lg text-sm text-gray-700">{checkerResult.summary}</div>
+            )}
+
+            {checkerResult.issues && checkerResult.issues.length > 0 && (
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-3">Issues Found</h3>
+                <div className="space-y-3">
+                  {checkerResult.issues.map((issue, i) => (
+                    <div key={i} className={`border-l-4 p-4 rounded-r-lg ${issue.severity === 'high' ? 'border-red-500 bg-red-50' : issue.severity === 'medium' ? 'border-yellow-500 bg-yellow-50' : 'border-blue-500 bg-blue-50'}`}>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${issue.severity === 'high' ? 'bg-red-200 text-red-800' : issue.severity === 'medium' ? 'bg-yellow-200 text-yellow-800' : 'bg-blue-200 text-blue-800'}`}>
+                          {issue.severity}
+                        </span>
+                        <span className="font-semibold text-sm text-gray-900">{issue.title}</span>
+                      </div>
+                      <p className="text-sm text-gray-700 mb-1">{issue.description}</p>
+                      <p className="text-sm text-gray-600"><strong>Fix:</strong> {issue.suggestion}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {checkerResult.strengths && checkerResult.strengths.length > 0 && (
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Strengths</h3>
+                <ul className="space-y-1">
+                  {checkerResult.strengths.map((s, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-green-500 mt-0.5">&#10003;</span> {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {checkerResult.missing_clauses && checkerResult.missing_clauses.length > 0 && (
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Missing Clauses</h3>
+                <ul className="space-y-1">
+                  {checkerResult.missing_clauses.map((c, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-red-400 mt-0.5">&#10007;</span> {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {checkerResult.compliance_notes && (
+              <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <h3 className="font-semibold text-blue-800 mb-1 text-sm">Compliance Notes</h3>
+                <p className="text-sm text-blue-700">{checkerResult.compliance_notes}</p>
+              </div>
+            )}
           </div>
         )}
 
