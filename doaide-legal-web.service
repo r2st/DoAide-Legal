@@ -8,7 +8,7 @@ User=www-data
 Group=www-data
 WorkingDirectory=/opt/doaide-legal/web
 Environment=PATH=/usr/local/bin:/usr/bin
-ExecStart=/usr/bin/npx serve -s dist -l tcp://172.18.0.1:3051
+ExecStart=/usr/bin/npx serve -s dist -l tcp://172.18.0.1:3074
 Restart=always
 RestartSec=5
 

@@ -7,9 +7,9 @@ Type=simple
 User=www-data
 Group=www-data
 WorkingDirectory=/opt/doaide-legal/api
-Environment=PATH=/opt/doaide-legal/api/venv/bin:/usr/bin
+Environment=PATH=/opt/doaide-legal/api/.venv/bin:/usr/bin
 EnvironmentFile=/opt/doaide-legal/.env
-ExecStart=/opt/doaide-legal/api/venv/bin/uvicorn main:app --host 172.18.0.1 --port 3050
+ExecStart=/opt/doaide-legal/api/.venv/bin/uvicorn main:app --host 172.18.0.1 --port 3073
 Restart=always
 RestartSec=5
 
