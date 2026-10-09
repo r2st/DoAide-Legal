@@ -1,14 +1,16 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
+from fastapi.responses import Response, JSONResponse
 from models import (
     RentalAgreementRequest, NDARequest, OfferLetterRequest,
     FreelancerContractRequest, InvoiceRequest, PowerOfAttorneyRequest,
     PartnershipDeedRequest, ResignationLetterRequest,
     ExperienceCertificateRequest, SalarySlipRequest,
     LegalNoticeRequest, AffidavitRequest,
+    PrivacyPolicyRequest, TermsOfServiceRequest, ContractClauseRequest,
 )
 from generators import pdf_generator, docx_generator
+from llm import generate_with_gemini, extract_json_from_response
 
 app = FastAPI(title="DoAide Legal API", version="1.0.0")
 
@@ -122,6 +124,98 @@ def affidavit(data: AffidavitRequest, format: str = Query("pdf")):
     pdf = pdf_generator.generate_affidavit(data)
     docx = docx_generator.generate_affidavit(data)
     return _respond(pdf, docx, format, "Affidavit")
+
+
+@app.post("/api/privacy-policy")
+async def privacy_policy(data: PrivacyPolicyRequest, format: str = Query("pdf")):
+    data_list = ", ".join(data.data_collected) if data.data_collected else "name, email"
+    third_party = ", ".join(data.third_party_services) if data.third_party_services else "none"
+    prompt = f"""Generate a comprehensive Privacy Policy for an Indian company. Return ONLY valid JSON with this structure:
+{{"title": "Privacy Policy", "sections": [{{"heading": "section title", "content": "section content"}}]}}
+
+Details:
+- Company: {data.company_name}
+- Website: {data.website_url}
+- Business Type: {data.business_type}
+- Data Collected: {data_list}
+- Uses Cookies: {data.uses_cookies}
+- Uses Analytics: {data.uses_analytics}
+- Third-Party Services: {third_party}
+- Country: {data.country}
+- Contact Email: {data.contact_email or 'N/A'}
+- Effective Date: {data.effective_date or 'Date of publication'}
+
+Include sections for: Information Collection, Use of Information, Cookies, Data Sharing, Data Security, User Rights, Children's Privacy, Changes to Policy, Contact Information. Make it compliant with Indian IT Act 2000 and DPDP Act 2023. Use professional legal language. Each section content should be 2-4 paragraphs."""
+
+    text = await generate_with_gemini(prompt)
+    sections = extract_json_from_response(text)
+    pdf = pdf_generator.generate_generic_legal_doc(
+        title=sections.get("title", "Privacy Policy"),
+        subtitle=f"For {data.company_name}",
+        sections=sections.get("sections", []),
+    )
+    docx = docx_generator.generate_generic_legal_doc(
+        title=sections.get("title", "Privacy Policy"),
+        subtitle=f"For {data.company_name}",
+        sections=sections.get("sections", []),
+    )
+    return _respond(pdf, docx, format, "Privacy_Policy")
+
+
+@app.post("/api/terms-of-service")
+async def terms_of_service(data: TermsOfServiceRequest, format: str = Query("pdf")):
+    prompt = f"""Generate comprehensive Terms of Service for an Indian company. Return ONLY valid JSON with this structure:
+{{"title": "Terms of Service", "sections": [{{"heading": "section title", "content": "section content"}}]}}
+
+Details:
+- Company: {data.company_name}
+- Website: {data.website_url}
+- Business Type: {data.business_type}
+- Services: {data.services_description or 'General online services'}
+- Governing State: {data.governing_state or 'Not specified'}
+- Country: {data.country}
+- Minimum Age: {data.minimum_age}
+- Allows User Content: {data.allows_user_content}
+- Has Paid Services: {data.has_paid_services}
+- Refund Policy: {data.refund_policy or 'Standard'}
+- Contact Email: {data.contact_email or 'N/A'}
+- Effective Date: {data.effective_date or 'Date of publication'}
+
+Include sections for: Acceptance of Terms, Use License, User Accounts, Prohibited Uses, Intellectual Property, Limitation of Liability, Indemnification, Termination, Governing Law, Changes to Terms, Contact. {"Include sections for User Content and Content Moderation." if data.allows_user_content else ""} {"Include sections for Payments, Refunds, and Subscription Terms." if data.has_paid_services else ""} Compliant with Indian IT Act 2000 and Consumer Protection Act 2019. Professional legal language. Each section 2-4 paragraphs."""
+
+    text = await generate_with_gemini(prompt)
+    sections = extract_json_from_response(text)
+    pdf = pdf_generator.generate_generic_legal_doc(
+        title=sections.get("title", "Terms of Service"),
+        subtitle=f"For {data.company_name}",
+        sections=sections.get("sections", []),
+    )
+    docx = docx_generator.generate_generic_legal_doc(
+        title=sections.get("title", "Terms of Service"),
+        subtitle=f"For {data.company_name}",
+        sections=sections.get("sections", []),
+    )
+    return _respond(pdf, docx, format, "Terms_of_Service")
+
+
+@app.post("/api/contract-clause-library")
+async def contract_clause_library(data: ContractClauseRequest):
+    prompt = f"""Generate professional contract clauses for an Indian legal context. Return ONLY valid JSON with this structure:
+{{"clause_type": "{data.clause_type}", "clauses": [{{"title": "clause title", "text": "full clause text", "notes": "when to use this clause"}}]}}
+
+Details:
+- Clause Type: {data.clause_type}
+- Context: {data.context or 'General purpose'}
+- Party A: {data.party_a or 'First Party'}
+- Party B: {data.party_b or 'Second Party'}
+- Governing State: {data.governing_state or 'Not specified'}
+- Industry: {data.industry}
+
+Generate 3-5 variations of the clause from basic to comprehensive. Each clause should be ready to copy-paste into a contract. Include usage notes for each variation. Use professional Indian legal language compliant with the Indian Contract Act 1872."""
+
+    text = await generate_with_gemini(prompt)
+    result = extract_json_from_response(text)
+    return JSONResponse(content=result)
 
 
 if __name__ == "__main__":

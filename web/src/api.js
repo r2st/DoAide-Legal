@@ -13,6 +13,19 @@ export async function generateDocument(toolId, data, format = 'pdf') {
   return res.blob();
 }
 
+export async function generateClauses(data) {
+  const res = await fetch(`${API_URL}/api/contract-clause-library`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: 'Generation failed' }));
+    throw new Error(err.detail || 'Clause generation failed');
+  }
+  return res.json();
+}
+
 export function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');

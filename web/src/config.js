@@ -85,4 +85,28 @@ export const TOOLS = [
     icon: '📋',
     category: 'Legal',
   },
+  {
+    id: 'privacy-policy',
+    title: 'Privacy Policy Generator',
+    description: 'AI-powered privacy policy compliant with Indian DPDP Act 2023',
+    icon: '🔒',
+    category: 'Compliance',
+    aiPowered: true,
+  },
+  {
+    id: 'terms-of-service',
+    title: 'Terms of Service Generator',
+    description: 'AI-powered terms of service for websites and apps',
+    icon: '📄',
+    category: 'Compliance',
+    aiPowered: true,
+  },
+  {
+    id: 'contract-clause-library',
+    title: 'Contract Clause Library',
+    description: 'AI-generated contract clauses ready to copy-paste',
+    icon: '📚',
+    category: 'Compliance',
+    aiPowered: true,
+  },
 ];

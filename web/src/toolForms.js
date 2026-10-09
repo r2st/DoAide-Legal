@@ -536,4 +536,120 @@ export const toolForms = {
     ],
     defaults: {},
   },
+
+  'privacy-policy': {
+    title: 'Privacy Policy Generator',
+    metaTitle: 'Free AI Privacy Policy Generator for India — DPDP Act Compliant | DoAide Legal',
+    metaDescription: 'Generate a free, AI-powered privacy policy compliant with India\'s DPDP Act 2023 and IT Act 2000. No login required. Download as PDF or DOCX.',
+    aiPowered: true,
+    sections: [
+      {
+        heading: 'Company Details',
+        fields: [
+          { name: 'company_name', label: 'Company / Business Name', required: true },
+          { name: 'website_url', label: 'Website URL', required: true, placeholder: 'https://example.com' },
+          { name: 'business_type', label: 'Business Type', type: 'select', options: ['general', 'e-commerce', 'saas', 'healthcare', 'fintech', 'education', 'media'] },
+          { name: 'contact_email', label: 'Contact Email', required: true },
+          { name: 'effective_date', label: 'Effective Date (DD/MM/YYYY)', required: true },
+        ],
+      },
+      {
+        heading: 'Data & Features',
+        fields: [
+          { name: 'uses_cookies', label: 'Uses Cookies?', type: 'select', options: [{ value: 'true', label: 'Yes' }, { value: 'false', label: 'No' }] },
+          { name: 'uses_analytics', label: 'Uses Analytics?', type: 'select', options: [{ value: 'true', label: 'Yes' }, { value: 'false', label: 'No' }] },
+          { name: 'uses_third_party_services', label: 'Uses Third-Party Services?', type: 'select', options: [{ value: 'true', label: 'Yes' }, { value: 'false', label: 'No' }] },
+          { name: 'country', label: 'Primary Country', type: 'select', options: ['India', 'Global'] },
+        ],
+      },
+    ],
+    listFields: [
+      { name: 'data_collected', label: 'Data Types Collected', placeholder: 'e.g., name, email, phone, address' },
+      { name: 'third_party_services', label: 'Third-Party Services', placeholder: 'e.g., Google Analytics, Stripe, AWS' },
+    ],
+    defaults: { business_type: 'general', uses_cookies: 'true', uses_analytics: 'true', uses_third_party_services: 'false', country: 'India' },
+    transformBeforeSubmit: (data) => ({
+      ...data,
+      uses_cookies: data.uses_cookies === 'true',
+      uses_analytics: data.uses_analytics === 'true',
+      uses_third_party_services: data.uses_third_party_services === 'true',
+    }),
+  },
+
+  'terms-of-service': {
+    title: 'Terms of Service Generator',
+    metaTitle: 'Free AI Terms of Service Generator for India | DoAide Legal',
+    metaDescription: 'Generate free, AI-powered Terms of Service for your Indian website or app. Compliant with IT Act 2000 and Consumer Protection Act 2019. Download as PDF or DOCX.',
+    aiPowered: true,
+    sections: [
+      {
+        heading: 'Company Details',
+        fields: [
+          { name: 'company_name', label: 'Company / Business Name', required: true },
+          { name: 'website_url', label: 'Website URL', required: true, placeholder: 'https://example.com' },
+          { name: 'business_type', label: 'Business Type', type: 'select', options: ['general', 'e-commerce', 'saas', 'marketplace', 'social-media', 'fintech', 'education'] },
+          { name: 'services_description', label: 'Describe Your Services', type: 'textarea', required: true },
+        ],
+      },
+      {
+        heading: 'Terms Configuration',
+        fields: [
+          { name: 'governing_state', label: 'Governing State', required: true, placeholder: 'e.g., Maharashtra' },
+          { name: 'minimum_age', label: 'Minimum User Age', type: 'number' },
+          { name: 'allows_user_content', label: 'Allows User-Generated Content?', type: 'select', options: [{ value: 'true', label: 'Yes' }, { value: 'false', label: 'No' }] },
+          { name: 'has_paid_services', label: 'Has Paid Services?', type: 'select', options: [{ value: 'true', label: 'Yes' }, { value: 'false', label: 'No' }] },
+          { name: 'refund_policy', label: 'Refund Policy', type: 'textarea', placeholder: 'Describe your refund policy (optional)' },
+          { name: 'contact_email', label: 'Contact Email', required: true },
+          { name: 'effective_date', label: 'Effective Date (DD/MM/YYYY)', required: true },
+        ],
+      },
+    ],
+    defaults: { business_type: 'general', minimum_age: 18, allows_user_content: 'false', has_paid_services: 'false', country: 'India' },
+    transformBeforeSubmit: (data) => ({
+      ...data,
+      minimum_age: parseInt(data.minimum_age) || 18,
+      allows_user_content: data.allows_user_content === 'true',
+      has_paid_services: data.has_paid_services === 'true',
+    }),
+  },
+
+  'contract-clause-library': {
+    title: 'Contract Clause Library',
+    metaTitle: 'Free AI Contract Clause Library for India | DoAide Legal',
+    metaDescription: 'Browse and generate AI-powered contract clauses for Indian agreements. Confidentiality, indemnity, force majeure, IP assignment, and more. Free, no login.',
+    aiPowered: true,
+    isClauseLibrary: true,
+    sections: [
+      {
+        heading: 'Clause Configuration',
+        fields: [
+          { name: 'clause_type', label: 'Clause Type', type: 'select', options: [
+            { value: 'confidentiality', label: 'Confidentiality / NDA' },
+            { value: 'indemnity', label: 'Indemnity' },
+            { value: 'force-majeure', label: 'Force Majeure' },
+            { value: 'ip-assignment', label: 'IP Assignment' },
+            { value: 'non-compete', label: 'Non-Compete' },
+            { value: 'non-solicitation', label: 'Non-Solicitation' },
+            { value: 'termination', label: 'Termination' },
+            { value: 'dispute-resolution', label: 'Dispute Resolution / Arbitration' },
+            { value: 'limitation-of-liability', label: 'Limitation of Liability' },
+            { value: 'data-protection', label: 'Data Protection / Privacy' },
+            { value: 'payment-terms', label: 'Payment Terms' },
+            { value: 'warranty', label: 'Warranty / Disclaimer' },
+          ], required: true },
+          { name: 'industry', label: 'Industry', type: 'select', options: ['general', 'technology', 'real-estate', 'healthcare', 'finance', 'manufacturing', 'services'] },
+          { name: 'context', label: 'Context / Use Case', type: 'textarea', placeholder: 'Describe the agreement context (optional)' },
+        ],
+      },
+      {
+        heading: 'Party Details (Optional)',
+        fields: [
+          { name: 'party_a', label: 'Party A Name', placeholder: 'Company / Individual name' },
+          { name: 'party_b', label: 'Party B Name', placeholder: 'Company / Individual name' },
+          { name: 'governing_state', label: 'Governing State', placeholder: 'e.g., Maharashtra' },
+        ],
+      },
+    ],
+    defaults: { clause_type: 'confidentiality', industry: 'general' },
+  },
 };

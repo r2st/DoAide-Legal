@@ -233,3 +233,41 @@ class AffidavitRequest(BaseModel):
     place: str
     date: str
     notary_name: Optional[str] = None
+
+
+class PrivacyPolicyRequest(BaseModel):
+    company_name: str
+    website_url: str
+    business_type: str = "general"
+    data_collected: list[str] = Field(default_factory=lambda: ["name", "email"])
+    uses_cookies: bool = True
+    uses_analytics: bool = True
+    uses_third_party_services: bool = False
+    third_party_services: list[str] = Field(default_factory=list)
+    country: str = "India"
+    contact_email: str = ""
+    effective_date: str = ""
+
+
+class TermsOfServiceRequest(BaseModel):
+    company_name: str
+    website_url: str
+    business_type: str = "general"
+    services_description: str = ""
+    governing_state: str = ""
+    country: str = "India"
+    minimum_age: int = 18
+    allows_user_content: bool = False
+    has_paid_services: bool = False
+    refund_policy: str = ""
+    contact_email: str = ""
+    effective_date: str = ""
+
+
+class ContractClauseRequest(BaseModel):
+    clause_type: str
+    context: str = ""
+    party_a: str = ""
+    party_b: str = ""
+    governing_state: str = ""
+    industry: str = "general"

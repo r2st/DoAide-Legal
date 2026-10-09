@@ -888,6 +888,27 @@ def generate_affidavit(data) -> bytes:
     return _build_pdf(e, "Affidavit")
 
 
+def generate_generic_legal_doc(title: str, subtitle: str, sections: list[dict]) -> bytes:
+    s = _get_styles()
+    e = []
+    e.append(Paragraph(title.upper(), s["DocTitle"]))
+    if subtitle:
+        e.append(Paragraph(subtitle, s["DocSubtitle"]))
+    e.append(_hr())
+
+    for section in sections:
+        heading = section.get("heading", "")
+        content = section.get("content", "")
+        if heading:
+            e.append(Paragraph(heading.upper(), s["SectionHead"]))
+        for para in content.split("\n\n"):
+            para = para.strip()
+            if para:
+                e.append(Paragraph(para, s["Body"]))
+
+    return _build_pdf(e, title.replace(" ", "_"))
+
+
 def _ordinal(n: int) -> str:
     if 11 <= (n % 100) <= 13:
         suffix = "th"

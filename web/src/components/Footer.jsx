@@ -15,12 +15,14 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">Quick Links</h3>
+            <h3 className="font-semibold text-gray-800 mb-2">Popular Tools</h3>
             <ul className="space-y-1 text-sm text-gray-600">
               <li><Link to="/rental-agreement" className="hover:text-brand-gold">Rental Agreement</Link></li>
-              <li><Link to="/invoice" className="hover:text-brand-gold">Invoice Generator</Link></li>
-              <li><Link to="/salary-slip" className="hover:text-brand-gold">Salary Slip</Link></li>
               <li><Link to="/nda" className="hover:text-brand-gold">NDA Generator</Link></li>
+              <li><Link to="/invoice" className="hover:text-brand-gold">Invoice Generator</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-brand-gold">Privacy Policy Generator</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-brand-gold">Terms of Service Generator</Link></li>
+              <li><Link to="/contract-clause-library" className="hover:text-brand-gold">Contract Clause Library</Link></li>
             </ul>
           </div>
           <div>
@@ -28,6 +30,8 @@ export default function Footer() {
             <ul className="space-y-1 text-sm text-gray-600">
               <li><a href="https://doaide.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold">DoAide Home</a></li>
               <li><Link to="/blog" className="hover:text-brand-gold">Legal Tips Blog</Link></li>
+              <li><Link to="/salary-slip" className="hover:text-brand-gold">Salary Slip</Link></li>
+              <li><Link to="/freelancer-contract" className="hover:text-brand-gold">Freelancer Contract</Link></li>
             </ul>
           </div>
         </div>

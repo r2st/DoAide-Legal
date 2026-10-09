@@ -616,6 +616,26 @@ def generate_legal_notice(data) -> bytes:
     return _to_bytes(doc)
 
 
+def generate_generic_legal_doc(title: str, subtitle: str, sections: list[dict]) -> bytes:
+    doc = _create_doc()
+    _add_title(doc, title.upper())
+    if subtitle:
+        _add_subtitle(doc, subtitle)
+
+    for section in sections:
+        heading = section.get("heading", "")
+        content = section.get("content", "")
+        if heading:
+            _add_section_heading(doc, heading.upper())
+        for para in content.split("\n\n"):
+            para = para.strip()
+            if para:
+                _add_body(doc, para)
+
+    _add_footer(doc)
+    return _to_bytes(doc)
+
+
 def generate_affidavit(data) -> bytes:
     doc = _create_doc()
     _add_title(doc, "AFFIDAVIT")

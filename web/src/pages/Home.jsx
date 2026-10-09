@@ -4,15 +4,26 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { TOOLS } from '../config';
 
-const categories = ['Property', 'Business', 'Employment', 'Finance', 'Legal'];
+const categories = ['Property', 'Business', 'Employment', 'Finance', 'Legal', 'Compliance'];
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Helmet>
         <title>DoAide Legal — Free Legal Document Generator for India</title>
-        <meta name="description" content="Generate free legal documents for India — rental agreements, NDAs, invoices, salary slips, offer letters, and more. No login required. Download as PDF or DOCX." />
+        <meta name="description" content="Generate free legal documents for India — rental agreements, NDAs, invoices, salary slips, privacy policies, and more. No login required. Download as PDF or DOCX." />
         <link rel="canonical" href="https://legal.doaide.com" />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: 'DoAide Legal',
+          url: 'https://legal.doaide.com',
+          description: 'Free legal document generator for India. Generate rental agreements, NDAs, invoices, privacy policies, terms of service, and more. No login required.',
+          applicationCategory: 'LegalService',
+          operatingSystem: 'Web',
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+          author: { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' },
+        })}</script>
       </Helmet>
       <Header />
 
@@ -41,7 +52,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-brand-dark">12</div>
+              <div className="text-2xl md:text-3xl font-bold text-brand-dark">15</div>
               <div className="text-sm text-gray-500">Free Tools</div>
             </div>
             <div>
@@ -80,7 +91,10 @@ export default function Home() {
                       <div className="flex items-start gap-3">
                         <span className="text-2xl">{tool.icon}</span>
                         <div>
-                          <h4 className="font-semibold text-gray-900 group-hover:text-brand-gold transition-colors">{tool.title}</h4>
+                          <div className="flex items-center gap-2">
+                            <h4 className="font-semibold text-gray-900 group-hover:text-brand-gold transition-colors">{tool.title}</h4>
+                            {tool.aiPowered && <span className="text-[10px] bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full font-medium">AI</span>}
+                          </div>
                           <p className="text-sm text-gray-500 mt-1">{tool.description}</p>
                         </div>
                       </div>
@@ -104,7 +118,7 @@ export default function Home() {
             <div>
               <div className="w-12 h-12 bg-brand-gold text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-3">1</div>
               <h3 className="font-semibold mb-1">Choose a Template</h3>
-              <p className="text-sm text-gray-500">Pick from 12 legal document templates designed for India.</p>
+              <p className="text-sm text-gray-500">Pick from 15 legal document templates designed for India.</p>
             </div>
             <div>
               <div className="w-12 h-12 bg-brand-gold text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-3">2</div>

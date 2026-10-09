@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://legal.doaide.com/sitemap.xml

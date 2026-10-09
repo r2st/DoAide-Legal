@@ -8,7 +8,7 @@ import ListField from '../components/ListField';
 import ShareButtons from '../components/ShareButtons';
 import { toolForms } from '../toolForms';
 import { TOOLS } from '../config';
-import { generateDocument, downloadBlob } from '../api';
+import { generateDocument, downloadBlob, generateClauses } from '../api';
 
 function InvoiceItems({ items, setItems }) {
   const addItem = () => setItems([...items, { description: '', quantity: 1, rate: 0, hsn_code: '' }]);
@@ -131,6 +131,7 @@ export default function ToolPage() {
   ]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [clauses, setClauses] = useState(null);
 
   if (!config || !toolMeta) {
     return (
@@ -151,34 +152,30 @@ export default function ToolPage() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const buildSubmitData = () => {
+    let submitData = { ...formData };
+    Object.entries(listData).forEach(([key, val]) => { submitData[key] = val; });
+    if (config.itemFields) submitData.items = items;
+    if (config.witnessFields) submitData.witnesses = witnesses;
+    if (config.partnerFields) submitData.partners = partners;
+    (config.sections || []).forEach((section) => {
+      section.fields.forEach((field) => {
+        if (field.type === 'number' && submitData[field.name] !== undefined && submitData[field.name] !== '') {
+          submitData[field.name] = parseFloat(submitData[field.name]);
+        }
+      });
+    });
+    if (config.transformBeforeSubmit) {
+      submitData = config.transformBeforeSubmit(submitData);
+    }
+    return submitData;
+  };
+
   const handleSubmit = async (format) => {
     setLoading(true);
     setError('');
     try {
-      let submitData = { ...formData };
-
-      // Merge list fields
-      Object.entries(listData).forEach(([key, val]) => { submitData[key] = val; });
-
-      // Merge special fields
-      if (config.itemFields) submitData.items = items;
-      if (config.witnessFields) submitData.witnesses = witnesses;
-      if (config.partnerFields) submitData.partners = partners;
-
-      // Cast numeric fields
-      (config.sections || []).forEach((section) => {
-        section.fields.forEach((field) => {
-          if (field.type === 'number' && submitData[field.name] !== undefined && submitData[field.name] !== '') {
-            submitData[field.name] = parseFloat(submitData[field.name]);
-          }
-        });
-      });
-
-      // Apply transform
-      if (config.transformBeforeSubmit) {
-        submitData = config.transformBeforeSubmit(submitData);
-      }
-
+      const submitData = buildSubmitData();
       const blob = await generateDocument(toolId, submitData, format);
       const ext = format === 'docx' ? 'docx' : 'pdf';
       const filename = `${config.title.replace(/\s+/g, '_')}.${ext}`;
@@ -190,12 +187,38 @@ export default function ToolPage() {
     }
   };
 
+  const handleClauseGenerate = async () => {
+    setLoading(true);
+    setError('');
+    setClauses(null);
+    try {
+      const submitData = buildSubmitData();
+      const result = await generateClauses(submitData);
+      setClauses(result);
+    } catch (err) {
+      setError(err.message || 'Failed to generate clauses');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Helmet>
         <title>{config.metaTitle}</title>
         <meta name="description" content={config.metaDescription} />
         <link rel="canonical" href={`https://legal.doaide.com/${toolId}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: config.title,
+          url: `https://legal.doaide.com/${toolId}`,
+          description: config.metaDescription,
+          applicationCategory: 'LegalService',
+          operatingSystem: 'Web',
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+          author: { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' },
+        })}</script>
       </Helmet>
       <Header />
       <main className="flex-1 max-w-4xl mx-auto w-full px-4 py-8">
@@ -247,25 +270,62 @@ export default function ToolPage() {
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">{error}</div>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <button
-              type="button"
-              onClick={() => handleSubmit('pdf')}
-              disabled={loading}
-              className="flex-1 bg-brand-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
-            >
-              {loading ? 'Generating...' : 'Download PDF'}
-            </button>
-            <button
-              type="button"
-              onClick={() => handleSubmit('docx')}
-              disabled={loading}
-              className="flex-1 bg-brand-gold text-white py-3 px-6 rounded-lg font-semibold hover:bg-yellow-600 transition-colors disabled:opacity-50"
-            >
-              {loading ? 'Generating...' : 'Download DOCX'}
-            </button>
-          </div>
+          {config.isClauseLibrary ? (
+            <div className="pt-4">
+              <button
+                type="button"
+                onClick={handleClauseGenerate}
+                disabled={loading}
+                className="w-full bg-brand-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
+              >
+                {loading ? 'Generating Clauses (AI)...' : 'Generate Clauses'}
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+              <button
+                type="button"
+                onClick={() => handleSubmit('pdf')}
+                disabled={loading}
+                className="flex-1 bg-brand-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
+              >
+                {loading ? (config.aiPowered ? 'Generating (AI)...' : 'Generating...') : 'Download PDF'}
+              </button>
+              <button
+                type="button"
+                onClick={() => handleSubmit('docx')}
+                disabled={loading}
+                className="flex-1 bg-brand-gold text-white py-3 px-6 rounded-lg font-semibold hover:bg-yellow-600 transition-colors disabled:opacity-50"
+              >
+                {loading ? (config.aiPowered ? 'Generating (AI)...' : 'Generating...') : 'Download DOCX'}
+              </button>
+            </div>
+          )}
         </form>
+
+        {clauses && clauses.clauses && (
+          <div className="mt-8 space-y-6">
+            <h2 className="text-xl font-bold text-gray-900">Generated Clauses</h2>
+            {clauses.clauses.map((clause, i) => (
+              <div key={i} className="border border-gray-200 rounded-xl p-5">
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <h3 className="font-semibold text-gray-900">{clause.title}</h3>
+                  <button
+                    type="button"
+                    onClick={() => navigator.clipboard.writeText(clause.text)}
+                    className="text-xs bg-brand-gold text-white px-3 py-1 rounded-full hover:bg-yellow-600 transition-colors whitespace-nowrap"
+                  >
+                    Copy
+                  </button>
+                </div>
+                <p className="text-sm text-gray-700 whitespace-pre-wrap mb-3">{clause.text}</p>
+                {clause.notes && (
+                  <p className="text-xs text-gray-500 bg-gray-50 p-2 rounded"><strong>Usage note:</strong> {clause.notes}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
 
         <ShareButtons title={config.title} />
 
