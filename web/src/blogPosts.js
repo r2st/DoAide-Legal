@@ -574,4 +574,445 @@ This checklist helps you spot obvious issues, but it is not a substitute for leg
 Our [free Legal Document Checker](/legal-document-checker) uses AI to analyse your legal documents and flag issues, missing clauses, and compliance gaps — all within seconds. Paste your document text and get an instant, detailed report. No login, no fees, completely free.
     `,
   },
+  {
+    slug: 'power-of-attorney-india-types-format-registration',
+    title: 'Power of Attorney in India: Types, Format, and Registration Guide for 2026',
+    excerpt: 'Need someone to act on your behalf for property, banking, or legal matters? Learn about the types of Power of Attorney in India, drafting requirements, registration rules, and revocation procedures.',
+    date: '2026-10-10',
+    readTime: '9 min',
+    category: 'Property',
+    faqs: [
+      {
+        question: 'Is a Power of Attorney valid without registration in India?',
+        answer: 'A General Power of Attorney (GPA) is valid without registration for most purposes. However, if the PoA is used for immovable property transactions (sale, mortgage, lease), it must be registered under Section 17 of the Registration Act, 1908. An unregistered PoA used for property transfer may be challenged in court. Special Power of Attorney for specific acts generally does not require registration unless it involves property.',
+      },
+      {
+        question: 'What is the stamp duty for Power of Attorney in India?',
+        answer: 'Stamp duty on Power of Attorney varies by state. In Maharashtra, a GPA for property attracts stamp duty of ₹500, while a GPA for other purposes costs ₹100. In Delhi, stamp duty is ₹100 for a non-property GPA and ₹1,000 for property-related PoA. Karnataka charges ₹200 for a general PoA and ₹500 for property PoA. Always check your state\'s stamp duty schedule as rates change periodically.',
+      },
+      {
+        question: 'Can an NRI execute a Power of Attorney from abroad?',
+        answer: 'Yes, an NRI can execute a Power of Attorney from abroad. The PoA must be notarised by a Notary Public in the country of residence, then apostilled (for Hague Convention countries) or attested by the Indian Embassy or Consulate. Once received in India, it must be stamped with appropriate stamp duty within three months and registered if it relates to immovable property transactions.',
+      },
+      {
+        question: 'How do I revoke a Power of Attorney in India?',
+        answer: 'A Power of Attorney can be revoked by the principal at any time by executing a Deed of Revocation. The revocation must be communicated to the agent and all third parties who were dealing with the agent. If the original PoA was registered, the revocation deed should also be registered at the same sub-registrar office. A PoA is automatically revoked upon the death, insolvency, or insanity of the principal.',
+      },
+      {
+        question: 'Can property be sold using a General Power of Attorney in India?',
+        answer: 'The Supreme Court of India ruled in Suraj Lamp & Industries vs State of Haryana (2012) that property sales executed through a GPA alone, without a registered sale deed, are not legally valid transfers of title. A GPA can be used to authorise someone to execute a sale deed on your behalf, but the sale deed itself must be separately registered. GPA-based property sales without a registered sale deed are considered illegal and do not convey ownership.',
+      },
+    ],
+    content: `
+## What Is a Power of Attorney?
+
+A Power of Attorney (PoA) is a legal document that authorises one person (the agent or attorney-in-fact) to act on behalf of another person (the principal) in legal, financial, or property matters. In India, PoAs are governed by the Powers of Attorney Act, 1882, and are one of the most widely used legal instruments for property transactions, banking operations, and business management.
+
+Whether you are an NRI managing property in India, a business owner delegating authority, or a senior citizen who needs someone to handle financial affairs, a properly drafted PoA is essential.
+
+## Types of Power of Attorney in India
+
+### General Power of Attorney (GPA)
+
+A General Power of Attorney grants broad authority to the agent to act on behalf of the principal in multiple matters. This can include managing bank accounts, handling property, signing contracts, and conducting business transactions.
+
+A GPA is commonly used when the principal is unavailable for an extended period — for example, NRIs who need someone in India to manage their affairs. However, because of its broad scope, a GPA carries higher risk if the agent misuses the authority.
+
+### Special Power of Attorney (SPA)
+
+A Special Power of Attorney authorises the agent to perform only specific acts on behalf of the principal. For example, signing a particular sale deed, operating a specific bank account, or representing the principal in a particular legal proceeding.
+
+SPAs are safer than GPAs because the agent's authority is limited and clearly defined. Once the specified act is completed, the SPA automatically expires.
+
+### Durable Power of Attorney
+
+A Durable Power of Attorney remains valid even if the principal becomes mentally incapacitated. In India, this is particularly important for elderly individuals who want to ensure continuity of management of their affairs. Without the "durable" clause, a standard PoA becomes invalid if the principal loses mental capacity.
+
+## Essential Elements of a Valid PoA in India
+
+### 1. Principal and Agent Details
+
+The PoA must clearly identify both parties with full names, addresses, dates of birth, and identity proof references (Aadhaar, PAN, or passport numbers). If the agent is acting for a company, the company's CIN and registered address should be included.
+
+### 2. Scope of Authority
+
+This is the most critical section. Be precise about what the agent can and cannot do. Vague language like "all matters" without specifics can lead to misuse or disputes. List each authorised act separately:
+
+- Sell, purchase, mortgage, or lease specific properties
+- Operate named bank accounts (with account numbers)
+- Sign specific contracts or agreements
+- Represent in named legal proceedings
+- Collect rent, dividends, or other payments
+
+### 3. Duration and Conditions
+
+Specify when the PoA comes into effect and when it expires. You can set conditions — for example, "this PoA is valid only for the sale of property at [address] and expires upon completion of the transaction or on [date], whichever is earlier."
+
+### 4. Revocation Clause
+
+Include clear provisions for how the principal can revoke the PoA. State that revocation must be in writing, communicated to the agent, and notified to relevant third parties (banks, sub-registrar, etc.).
+
+## Stamp Duty and Registration Requirements
+
+### When Registration Is Mandatory
+
+Under the Registration Act, 1908, a PoA must be registered if it authorises the agent to deal with immovable property. The Supreme Court has repeatedly held that unregistered PoAs used for property transactions are not valid evidence of authority.
+
+For non-property matters, registration is optional but recommended — a registered PoA carries stronger evidentiary value in court.
+
+### Stamp Duty by State
+
+Stamp duty varies significantly across Indian states:
+
+- **Maharashtra**: ₹100 for general purposes; ₹500 for immovable property
+- **Delhi**: ₹100 non-property; up to ₹1,000 for property transactions
+- **Karnataka**: ₹200 general; ₹500 for property
+- **Tamil Nadu**: ₹100 general; ₹1,000 for property
+- **Uttar Pradesh**: ₹100 general; varies for property based on value
+
+E-stamping is available in most states and is recommended for convenience and authenticity.
+
+### Registration Process
+
+1. Draft the PoA on appropriate stamp paper
+2. Both principal and agent sign the document
+3. Two witnesses sign the document
+4. Visit the Sub-Registrar's office in the jurisdiction where the principal or property is located
+5. Pay the registration fee (typically ₹1,000-₹5,000)
+6. Biometric verification and photograph of the principal
+
+## PoA for NRIs: Special Considerations
+
+Non-Resident Indians frequently need PoAs for managing property and financial affairs in India. The process involves additional steps:
+
+- **Notarisation**: The PoA must be notarised by a Notary Public in the country of residence
+- **Apostille or Attestation**: For countries that are part of the Hague Convention, the document must be apostilled. For other countries, it must be attested by the Indian Embassy or Consulate
+- **Stamping in India**: Once received in India, the PoA must be stamped with appropriate stamp duty within three months of receipt
+- **Registration**: If the PoA relates to immovable property, it must be registered within four months of execution
+
+Many Indian banks and the sub-registrar offices now accept PoAs executed abroad through video conferencing, provided proper notarisation and apostille procedures are followed.
+
+## Common Mistakes to Avoid
+
+1. **Using a GPA when an SPA would suffice** — a narrower scope reduces the risk of misuse
+2. **Not registering a property PoA** — this can invalidate property transactions
+3. **Missing the stamping deadline** — late stamping attracts penalties of 2% per month in most states
+4. **Not including a revocation clause** — makes it harder to terminate the agent's authority
+5. **Giving PoA to a single person without oversight** — consider appointing two agents jointly for high-value transactions
+
+## Create Your Power of Attorney
+
+Our [free Power of Attorney Generator](/power-of-attorney) creates a professional, legally compliant PoA tailored for Indian law. Choose between General, Special, or Durable PoA, specify the exact scope of authority, and download as PDF or DOCX — no login required.
+    `,
+  },
+  {
+    slug: 'partnership-deed-india-clauses-registration-guide',
+    title: 'Partnership Deed in India: Must-Have Clauses, Registration, and Legal Requirements',
+    excerpt: 'Starting a business partnership in India? A well-drafted partnership deed prevents disputes and protects your investment. Learn the essential clauses, registration process, and legal requirements.',
+    date: '2026-10-10',
+    readTime: '8 min',
+    category: 'Business',
+    faqs: [
+      {
+        question: 'Is it mandatory to register a partnership deed in India?',
+        answer: 'Registration of a partnership firm is not mandatory under the Indian Partnership Act, 1932. However, an unregistered firm cannot file a lawsuit against third parties or other partners to enforce any right arising from a contract. Unregistered firms also cannot claim set-off in legal proceedings. Registration is strongly recommended as it provides legal recognition and the ability to enforce partnership rights in court.',
+      },
+      {
+        question: 'What is the stamp duty for a partnership deed in India?',
+        answer: 'Stamp duty on partnership deeds varies by state. In Maharashtra, the stamp duty is ₹1,000. In Delhi, it is ₹1,000 on non-judicial stamp paper. Karnataka charges ₹500. Tamil Nadu charges ₹1,000. Gujarat charges ₹500. Most states require the deed to be executed on non-judicial stamp paper of the prescribed value, and the deed should be notarised for additional legal weight.',
+      },
+      {
+        question: 'Can a minor be a partner in a firm in India?',
+        answer: 'Under Section 30 of the Indian Partnership Act, 1932, a minor cannot be a full partner but can be admitted to the benefits of a partnership with the consent of all existing partners. A minor partner can share in the profits but is not personally liable for losses beyond their share of the profits and property. Upon reaching the age of majority (18 years), the minor has six months to decide whether to become a full partner or retire from the firm.',
+      },
+      {
+        question: 'What happens if there is no partnership deed?',
+        answer: 'Without a partnership deed, the partnership is governed entirely by the default provisions of the Indian Partnership Act, 1932. This means all partners share profits and losses equally regardless of capital contribution, no partner receives a salary or interest on capital, and any partner can dissolve the firm at will. These defaults rarely reflect what partners actually agreed upon, which is why a written deed is essential.',
+      },
+      {
+        question: 'How is a partnership firm different from an LLP in India?',
+        answer: 'In a traditional partnership firm under the Indian Partnership Act 1932, partners have unlimited personal liability for the firm\'s debts. In a Limited Liability Partnership (LLP) under the LLP Act 2008, each partner\'s liability is limited to their capital contribution. LLPs must be registered with the MCA, file annual returns, and maintain audited accounts if turnover exceeds ₹40 lakh. A partnership firm has simpler compliance but carries higher personal financial risk.',
+      },
+    ],
+    content: `
+## Why You Need a Partnership Deed
+
+A partnership deed is the foundational document of any partnership firm in India. While the Indian Partnership Act, 1932 allows partnerships to exist based on verbal agreements, operating without a written deed is a recipe for disputes.
+
+Without a deed, the Partnership Act's default rules apply — all partners share profits and losses equally, no partner receives a salary, and any partner can dissolve the firm at will. These defaults rarely match what partners actually intend when they start a business together.
+
+A well-drafted partnership deed replaces these defaults with terms that reflect the actual agreement between partners, protecting each partner's investment, defining roles, and providing a framework for resolving disagreements.
+
+## Essential Clauses in a Partnership Deed
+
+### 1. Name and Nature of the Firm
+
+State the firm's official name, principal place of business, and the nature of business activities. The name must not be identical or deceptively similar to an existing firm or registered trademark. Under the Indian Partnership Act, a firm's name cannot contain words like "Limited", "LLP", "Corporation", or "Company".
+
+### 2. Partners' Details and Capital Contribution
+
+List each partner's full name, address, PAN, and Aadhaar number. Specify each partner's capital contribution — in cash, kind, or both. Be clear about whether capital contributions earn interest and at what rate (commonly 12% per annum, but must not exceed the rate allowed under Section 40(b) of the Income Tax Act for deduction purposes).
+
+### 3. Profit and Loss Sharing Ratio
+
+This is the most important clause. Specify the exact ratio in which profits and losses will be shared. Common arrangements include:
+
+- **Equal sharing**: All partners share equally, regardless of capital contribution
+- **Capital-proportionate**: Sharing in proportion to each partner's capital contribution
+- **Custom ratio**: Any agreed ratio, such as 60:40 or 50:30:20
+
+You can also have different ratios for profits and losses — for example, a working partner might receive a larger profit share in recognition of their operational involvement.
+
+### 4. Duties and Responsibilities
+
+Define each partner's role clearly:
+
+- Which partners are working partners (involved in daily operations)?
+- Which partners are sleeping or dormant partners (capital contributors only)?
+- What decisions require unanimous consent vs. majority decision?
+- What is the scope of each partner's authority to bind the firm?
+
+Clarifying roles prevents the common problem of one partner feeling they do all the work while others contribute less.
+
+### 5. Salary and Remuneration
+
+Working partners often receive a salary or remuneration in addition to their profit share. Specify the amount, payment frequency, and any conditions. Note that under Section 40(b) of the Income Tax Act, partnership salary is deductible only if it is authorised by the deed and does not exceed prescribed limits:
+
+- On first ₹3 lakh of book profit: ₹1,50,000 or 90% of book profit, whichever is higher
+- On remaining book profit: 60%
+
+### 6. Drawing Rights and Limits
+
+Partners often withdraw money from the firm for personal use. The deed should specify:
+
+- Maximum drawing allowed per partner per month or year
+- Whether drawings attract interest (commonly 12% per annum)
+- The process for recording and approving drawings
+
+Unrestricted drawings can drain a firm's working capital and lead to disputes.
+
+### 7. Banking and Financial Operations
+
+Specify which partners are authorised to operate the firm's bank accounts, sign cheques, approve payments above a certain threshold, and take loans on behalf of the firm. Joint signatory requirements for large transactions add a layer of protection.
+
+### 8. Admission and Retirement of Partners
+
+The deed should cover:
+
+- How new partners can be admitted (unanimous consent is standard)
+- How a partner's share is valued upon retirement or death
+- The notice period for voluntary retirement (typically 3-6 months)
+- Whether a retiring partner receives goodwill compensation
+- How the firm continues after a partner's exit
+
+### 9. Dispute Resolution
+
+Include a structured process:
+
+1. Internal discussion and negotiation (30 days)
+2. Mediation by a mutually agreed third party
+3. Arbitration under the Arbitration and Conciliation Act, 1996
+
+Specify the seat of arbitration and that the arbitrator's decision is final and binding. This prevents expensive litigation and keeps business disputes private.
+
+### 10. Dissolution Terms
+
+While no one starts a partnership expecting it to fail, planning for dissolution prevents chaos:
+
+- Circumstances triggering dissolution (mutual consent, bankruptcy, illegality)
+- How assets and liabilities are distributed
+- How the firm's name and goodwill are handled
+- Settlement timeline (typically 90-180 days)
+- Appointment of a partner or third party to manage the winding-up process
+
+## Registration Process
+
+### Where to Register
+
+Partnership firms are registered with the Registrar of Firms in the state where the firm's principal place of business is located. The process varies slightly by state but generally involves:
+
+1. Draft the partnership deed on appropriate stamp paper
+2. All partners sign the deed; two witnesses sign
+3. Notarise the deed
+4. Submit Form A (application for registration) to the Registrar of Firms
+5. Pay the registration fee (typically ₹500-₹2,000)
+6. Submit supporting documents: PAN of the firm, address proof, partners' ID and address proof
+
+### Documents Required
+
+- Partnership deed on stamp paper (original and copies)
+- Form A signed by all partners
+- Proof of principal place of business (rent agreement or ownership document)
+- PAN card of the firm
+- ID and address proof of all partners
+- Affidavit certifying the details in the application
+
+Registration typically takes 7-15 working days. Some states, including Maharashtra and Delhi, now offer online registration through their respective portals.
+
+## Tax Implications
+
+Partnership firms in India are taxed at a flat rate of 30% on total income, plus applicable surcharge and cess. Key tax considerations:
+
+- **Interest on capital**: Deductible up to 12% per annum
+- **Partner salary**: Deductible within Section 40(b) limits
+- **Partners' share of profit**: Exempt in the hands of partners under Section 10(2A)
+- **GST registration**: Required if turnover exceeds ₹20 lakh (₹10 lakh for special category states)
+
+## Create Your Partnership Deed
+
+Our [free Partnership Deed Generator](/partnership-deed) creates a comprehensive, legally sound partnership deed tailored for Indian law. Specify partners, capital, profit ratios, and clauses — then download as PDF or DOCX. No login, no fees, instant download.
+    `,
+  },
+  {
+    slug: 'offer-letter-employment-agreement-india-guide',
+    title: 'Offer Letter and Employment Agreement in India: Format, Clauses, and Legal Compliance',
+    excerpt: 'Hiring employees in India requires a legally compliant offer letter and employment agreement. Learn the mandatory clauses, labour law requirements, and best practices for Indian employers.',
+    date: '2026-10-10',
+    readTime: '8 min',
+    category: 'Employment',
+    faqs: [
+      {
+        question: 'Is an offer letter legally binding in India?',
+        answer: 'An offer letter in India can be legally binding if it meets the requirements of a valid contract under the Indian Contract Act, 1872 — offer, acceptance, consideration, and intention to create legal relations. However, most offer letters include conditions precedent (background verification, medical fitness) that make the employment contingent. Once the employee accepts and joins, the terms in the offer letter are generally enforceable. Courts have upheld claims for damages when employers revoke accepted offer letters without valid cause.',
+      },
+      {
+        question: 'What is the difference between an offer letter and an appointment letter in India?',
+        answer: 'An offer letter is issued before the employee joins and outlines the proposed terms of employment including designation, salary, and joining date. It is typically contingent on background checks and document verification. An appointment letter is issued on or after the joining date and serves as the formal confirmation of employment. The appointment letter usually contains more detailed terms including probation period, leave policy, code of conduct, and termination clauses. Many companies in India combine both into a single detailed employment agreement.',
+      },
+      {
+        question: 'What are the mandatory deductions from salary in India?',
+        answer: 'Mandatory deductions include: Provident Fund (PF) — 12% of basic salary for establishments with 20+ employees under the EPF Act 1952; Employee State Insurance (ESI) — 0.75% of gross salary for employees earning up to ₹21,000 per month; Professional Tax — varies by state, maximum ₹2,500 per year; and Income Tax (TDS) — deducted at source based on the employee\'s tax slab. The employment agreement should clearly state all applicable deductions so there is no ambiguity about take-home pay.',
+      },
+      {
+        question: 'Can an employer include a bond or service agreement clause in India?',
+        answer: 'Employment bonds requiring employees to serve for a minimum period or pay a penalty for early departure are common in India but have limited enforceability. Indian courts generally view bonds as restraint of trade under Section 27 of the Indian Contract Act and have held that penalties in employment bonds must be reasonable and proportionate to the training cost incurred by the employer. Bonds with excessive penalties or unreasonable lock-in periods (beyond 2-3 years) are frequently struck down by courts. The bond amount should reflect actual training expenses, not lost future revenue.',
+      },
+      {
+        question: 'What notice period is standard in Indian employment agreements?',
+        answer: 'Notice periods in India typically range from 30 days for junior and mid-level employees to 90 days for senior and executive-level positions. The notice period must be mentioned in the employment agreement and should be the same for both employer and employee to be considered fair. Under the Industrial Disputes Act 1947, workmen are entitled to a minimum of one month\'s notice or pay in lieu. Many companies allow employees to buy out the notice period by paying salary for the remaining notice days in lieu of serving.',
+      },
+    ],
+    content: `
+## Why Proper Employment Documentation Matters
+
+In India, employment relationships are governed by a patchwork of central and state labour laws. While there is no single law that mandates a written employment contract for all categories of workers, having a properly drafted offer letter and employment agreement protects both the employer and the employee.
+
+Without written terms, disputes over salary components, notice periods, intellectual property ownership, and termination conditions become extremely difficult to resolve. Indian labour courts and tribunals heavily rely on documentary evidence, and a clear employment agreement is your strongest defence.
+
+## Offer Letter vs. Appointment Letter vs. Employment Agreement
+
+### Offer Letter
+
+An offer letter is the initial document sent to a candidate after selection. It outlines the basic terms of the offer — designation, CTC (Cost to Company), joining date, and reporting location. Most offer letters are conditional on background verification, medical fitness, and submission of documents.
+
+### Appointment Letter
+
+The appointment letter is issued on or after the joining date and serves as the formal record of employment commencement. In many Indian companies, this is a more detailed version of the offer letter and serves as the primary employment document.
+
+### Employment Agreement
+
+A comprehensive employment agreement combines the offer and appointment into a single, detailed contract. It covers all terms of employment and is signed by both parties. This is the best practice approach, especially for mid-level and senior roles, as it provides a complete legal framework.
+
+## Essential Clauses for Indian Employment Agreements
+
+### 1. Job Title, Reporting, and Location
+
+Clearly state the employee's designation, department, reporting manager, and work location. If the role involves travel or the possibility of transfer, include a transfer clause specifying geographic scope and notice requirements. Under Indian labour law, involuntary transfer to a different city without contractual authority can be challenged.
+
+### 2. Compensation Structure
+
+Indian salary structures are unique and must be detailed in the agreement. A standard CTC breakup includes:
+
+- **Basic Salary**: Typically 40-50% of CTC; used as the base for PF, gratuity, and leave encashment calculations
+- **House Rent Allowance (HRA)**: Usually 40-50% of basic salary; provides tax benefits to employees in rented accommodation
+- **Special Allowance / Flexible Benefits**: The balancing component of CTC
+- **Provident Fund (Employer Contribution)**: 12% of basic salary for establishments with 20+ employees
+- **Gratuity**: 4.81% of basic salary (provision for the Payment of Gratuity Act)
+- **Performance Bonus / Variable Pay**: If applicable, specify the conditions, calculation method, and payment timeline
+
+Be explicit about gross salary (what the employee receives before tax) versus CTC (total cost to the company including employer contributions).
+
+### 3. Probation Period
+
+Most Indian companies set a probation period of 3-6 months. The agreement should specify:
+
+- Duration of probation
+- Performance evaluation criteria during probation
+- Notice period during probation (typically shorter — 7 to 30 days)
+- Conditions for confirmation, extension, or termination during probation
+- Whether benefits like leave and health insurance apply during probation
+
+### 4. Working Hours and Leave Policy
+
+Under the Factories Act, 1948, and the Shops and Establishments Act (state-specific), maximum working hours are typically 48 hours per week and 9 hours per day. For IT and ITES companies, many states have exemptions.
+
+Your agreement should cover:
+
+- Standard working hours and weekly off days
+- Overtime policy (if applicable — mandatory for workers under the Factories Act)
+- Leave entitlement: earned leave (15-21 days), sick leave (7-12 days), casual leave (7-12 days)
+- Public holiday list
+- Maternity leave (26 weeks under the Maternity Benefit Act, 2017) and paternity leave (if offered)
+
+### 5. Intellectual Property Assignment
+
+This clause is critical for technology, creative, and R&D roles. Under Indian copyright law, the employer automatically owns work created by an employee in the course of employment. However, disputes arise over work created outside office hours or using personal resources.
+
+A clear IP clause should state that all inventions, code, designs, and creative works created during employment — whether during or outside working hours, if related to the employer's business — belong to the employer. Include assignment language that transfers all rights, including the right to file patents.
+
+### 6. Confidentiality and Non-Disclosure
+
+Every employment agreement should include a confidentiality clause covering:
+
+- Definition of confidential information (trade secrets, client data, business strategies, source code)
+- Obligations during and after employment
+- Duration of confidentiality obligation post-employment (typically 1-2 years)
+- Exceptions (public domain information, legally compelled disclosure)
+
+Unlike non-compete clauses, confidentiality obligations are fully enforceable in India even after the employment ends.
+
+### 7. Non-Compete and Non-Solicitation
+
+Non-compete clauses that restrict an employee from joining a competitor after leaving are generally unenforceable in India under Section 27 of the Indian Contract Act, which voids agreements in restraint of trade. However, courts have allowed reasonable non-compete restrictions during the employment period.
+
+Non-solicitation clauses — preventing former employees from soliciting the employer's clients or other employees for a limited period — have better enforceability if they are reasonable in scope and duration (6-12 months).
+
+### 8. Termination and Notice Period
+
+Specify the grounds and process for termination:
+
+- **Voluntary resignation**: Notice period (30-90 days) and handover requirements
+- **Termination for cause**: Misconduct, fraud, breach of agreement, poor performance after documented warnings
+- **Termination without cause**: Notice period or pay in lieu
+- **Immediate termination**: For serious misconduct (theft, violence, data breach)
+
+For workers classified under the Industrial Disputes Act, 1947, termination requirements are stricter — including mandatory notice, retrenchment compensation (15 days' wages for each completed year of service), and government approval for establishments with 100+ workers.
+
+### 9. Full and Final Settlement
+
+The agreement should address how final dues are calculated and paid upon separation:
+
+- Salary up to the last working day
+- Leave encashment for unused earned leave
+- Gratuity (if applicable — after 5 years of continuous service under the Payment of Gratuity Act)
+- Reimbursement of pending expenses
+- Recovery of any loans, advances, or company assets
+- Timeline for settlement (typically 30-45 days from last working day)
+
+## Labour Law Compliance Checklist
+
+Indian employers must comply with multiple labour laws. Key compliance areas to address in your employment documentation:
+
+- **EPF registration and contribution** — Employees' Provident Fund and Miscellaneous Provisions Act, 1952
+- **ESI registration** — Employees' State Insurance Act, 1948 (for employees earning up to ₹21,000/month)
+- **Minimum wages** — Minimum Wages Act, 1948 (rates vary by state and industry)
+- **Equal remuneration** — Equal Remuneration Act, 1976
+- **Sexual harassment prevention** — Sexual Harassment of Women at Workplace Act, 2013 (Internal Complaints Committee mandatory for 10+ employees)
+- **Shops and Establishments** — State-specific registration and compliance
+
+## Generate Your Offer Letter
+
+Our [free Offer Letter Generator](/offer-letter) creates a professional, legally compliant employment offer letter tailored for Indian law. Specify CTC breakup, probation terms, and employment conditions — then download as PDF or DOCX. No login, no fees, instant download.
+    `,
+  },
 ];

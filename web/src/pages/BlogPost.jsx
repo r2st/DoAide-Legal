@@ -92,6 +92,19 @@ export default function BlogPost() {
     },
   };
 
+  const faqJsonLd = post.faqs && post.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: post.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  } : null;
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Helmet>
@@ -99,6 +112,7 @@ export default function BlogPost() {
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://legal.doaide.com/blog/${post.slug}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        {faqJsonLd && <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>}
       </Helmet>
       <Header />
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8">
@@ -125,6 +139,23 @@ export default function BlogPost() {
             {renderMarkdown(post.content)}
           </div>
         </article>
+
+        {post.faqs && post.faqs.length > 0 && (
+          <section className="mt-10 mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {post.faqs.map((faq, idx) => (
+                <details key={idx} className="border border-gray-200 rounded-lg p-4 group">
+                  <summary className="font-semibold text-gray-800 cursor-pointer list-none flex items-center justify-between">
+                    <span>{faq.question}</span>
+                    <span className="text-gray-400 group-open:rotate-180 transition-transform text-xs ml-2">&#9660;</span>
+                  </summary>
+                  <p className="text-gray-700 text-sm leading-relaxed mt-3">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         <ShareButtons title={post.title} />
 
