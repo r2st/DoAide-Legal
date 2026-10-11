@@ -41,7 +41,7 @@ export default function Blog() {
 
         <div className="space-y-6">
           {blogPosts.map((post) => (
-            <article key={post.slug} className="border border-gray-200 rounded-xl p-6 hover:border-brand-gold transition-colors">
+            <article key={post.slug} className="border border-gray-200 rounded-xl p-6 hover:border-da-teal transition-colors">
               <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
                 <span>{post.date}</span>
                 <span>&middot;</span>
@@ -49,15 +49,15 @@ export default function Blog() {
                 {post.category && (
                   <>
                     <span>&middot;</span>
-                    <span className="text-brand-gold">{post.category}</span>
+                    <span className="text-da-teal">{post.category}</span>
                   </>
                 )}
               </div>
               <Link to={`/blog/${post.slug}`}>
-                <h2 className="text-xl font-semibold text-gray-900 mb-2 hover:text-brand-gold transition-colors">{post.title}</h2>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2 hover:text-da-teal transition-colors">{post.title}</h2>
               </Link>
               <p className="text-gray-600 text-sm mb-3">{post.excerpt}</p>
-              <Link to={`/blog/${post.slug}`} className="text-sm text-brand-gold font-medium hover:underline">
+              <Link to={`/blog/${post.slug}`} className="text-sm text-da-teal font-medium hover:underline">
                 Read More &rarr;
               </Link>
             </article>
@@ -65,7 +65,7 @@ export default function Blog() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/" className="text-brand-gold hover:underline font-medium">&larr; Back to Tools</Link>
+          <Link to="/" className="text-da-teal hover:underline font-medium">&larr; Back to Tools</Link>
         </div>
       </main>
       <Footer />

@@ -25,9 +25,9 @@ export default function ListField({ label, value = [], onChange, placeholder }) 
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addItem())}
           placeholder={placeholder || 'Type and press Enter'}
-          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none text-sm"
+          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-da-teal focus:border-da-teal outline-none text-sm"
         />
-        <button type="button" onClick={addItem} className="px-3 py-2 bg-brand-gold text-white rounded-lg text-sm font-medium hover:bg-yellow-600 transition-colors">
+        <button type="button" onClick={addItem} className="px-3 py-2 bg-da-teal text-white rounded-lg text-sm font-medium hover:bg-da-teal-dark transition-colors">
           Add
         </button>
       </div>

@@ -1,5 +1,5 @@
 export default function FormField({ label, name, type = 'text', value, onChange, required = false, placeholder, options, rows }) {
-  const baseClass = 'w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-colors text-sm';
+  const baseClass = 'w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-da-teal focus:border-da-teal outline-none transition-colors text-sm';
 
   if (type === 'select') {
     return (

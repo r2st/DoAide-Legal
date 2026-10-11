@@ -23,21 +23,21 @@ function InvoiceItems({ items, setItems }) {
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold text-gray-800">Line Items</h3>
-        <button type="button" onClick={addItem} className="text-sm text-brand-gold hover:underline font-medium">+ Add Item</button>
+        <button type="button" onClick={addItem} className="text-sm text-da-teal hover:underline font-medium">+ Add Item</button>
       </div>
       {items.map((item, i) => (
         <div key={i} className="grid grid-cols-2 md:grid-cols-5 gap-2 p-3 bg-gray-50 rounded-lg">
           <div className="col-span-2">
             <input type="text" placeholder="Description" value={item.description} onChange={(e) => updateItem(i, 'description', e.target.value)}
-              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
           </div>
           <input type="number" placeholder="Qty" value={item.quantity} onChange={(e) => updateItem(i, 'quantity', e.target.value)}
-            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
           <input type="number" placeholder="Rate" value={item.rate} onChange={(e) => updateItem(i, 'rate', e.target.value)}
-            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
           <div className="flex gap-1">
             <input type="text" placeholder="HSN" value={item.hsn_code} onChange={(e) => updateItem(i, 'hsn_code', e.target.value)}
-              className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" />
+              className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" />
             {items.length > 1 && (
               <button type="button" onClick={() => removeItem(i)} className="text-red-400 hover:text-red-600 px-1 text-lg">&times;</button>
             )}
@@ -61,9 +61,9 @@ function WitnessFields({ witnesses, setWitnesses, count = 2 }) {
       {Array.from({ length: count }).map((_, i) => (
         <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-2 p-3 bg-gray-50 rounded-lg">
           <input type="text" placeholder={`Witness ${i + 1} Name`} value={witnesses[i]?.name || ''} onChange={(e) => updateWitness(i, 'name', e.target.value)}
-            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
           <input type="text" placeholder={`Witness ${i + 1} Address`} value={witnesses[i]?.address || ''} onChange={(e) => updateWitness(i, 'address', e.target.value)}
-            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+            className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
         </div>
       ))}
     </div>
@@ -83,7 +83,7 @@ function PartnerFields({ partners, setPartners }) {
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold text-gray-800">Partners</h3>
-        <button type="button" onClick={addPartner} className="text-sm text-brand-gold hover:underline font-medium">+ Add Partner</button>
+        <button type="button" onClick={addPartner} className="text-sm text-da-teal hover:underline font-medium">+ Add Partner</button>
       </div>
       {partners.map((p, i) => (
         <div key={i} className="p-3 bg-gray-50 rounded-lg space-y-2">
@@ -95,13 +95,13 @@ function PartnerFields({ partners, setPartners }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <input type="text" placeholder="Name" value={p.name} onChange={(e) => updatePartner(i, 'name', e.target.value)}
-              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
             <input type="text" placeholder="Address" value={p.address} onChange={(e) => updatePartner(i, 'address', e.target.value)}
-              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
             <input type="number" placeholder="Capital (₹)" value={p.capital_contribution} onChange={(e) => updatePartner(i, 'capital_contribution', e.target.value)}
-              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
             <input type="number" placeholder="Profit Share (%)" value={p.profit_share_percentage} onChange={(e) => updatePartner(i, 'profit_share_percentage', e.target.value)}
-              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-brand-gold outline-none" required />
+              className="px-2 py-1.5 border border-gray-300 rounded text-sm focus:ring-1 focus:ring-da-teal outline-none" required />
           </div>
         </div>
       ))}
@@ -141,7 +141,7 @@ export default function ToolPage() {
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-800 mb-2">Tool Not Found</h1>
-            <Link to="/" className="text-brand-gold hover:underline">Back to Home</Link>
+            <Link to="/" className="text-da-teal hover:underline">Back to Home</Link>
           </div>
         </main>
         <Footer />
@@ -239,7 +239,7 @@ export default function ToolPage() {
       <Header />
       <main className="flex-1 max-w-4xl mx-auto w-full px-4 py-8">
         <div className="mb-6">
-          <Link to="/" className="text-sm text-gray-500 hover:text-brand-gold">&larr; All Tools</Link>
+          <Link to="/" className="text-sm text-gray-500 hover:text-da-teal">&larr; All Tools</Link>
         </div>
 
         <div className="flex items-center gap-3 mb-6">
@@ -292,7 +292,7 @@ export default function ToolPage() {
                 type="button"
                 onClick={handleDocumentCheck}
                 disabled={loading}
-                className="w-full bg-brand-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
+                className="w-full bg-da-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
               >
                 {loading ? 'Analyzing Document (AI)...' : 'Analyze Document'}
               </button>
@@ -303,7 +303,7 @@ export default function ToolPage() {
                 type="button"
                 onClick={handleClauseGenerate}
                 disabled={loading}
-                className="w-full bg-brand-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
+                className="w-full bg-da-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
               >
                 {loading ? 'Generating Clauses (AI)...' : 'Generate Clauses'}
               </button>
@@ -314,7 +314,7 @@ export default function ToolPage() {
                 type="button"
                 onClick={() => handleSubmit('pdf')}
                 disabled={loading}
-                className="flex-1 bg-brand-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
+                className="flex-1 bg-da-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50"
               >
                 {loading ? (config.aiPowered ? 'Generating (AI)...' : 'Generating...') : 'Download PDF'}
               </button>
@@ -322,7 +322,7 @@ export default function ToolPage() {
                 type="button"
                 onClick={() => handleSubmit('docx')}
                 disabled={loading}
-                className="flex-1 bg-brand-gold text-white py-3 px-6 rounded-lg font-semibold hover:bg-yellow-600 transition-colors disabled:opacity-50"
+                className="flex-1 bg-da-teal text-white py-3 px-6 rounded-lg font-semibold hover:bg-da-teal-dark transition-colors disabled:opacity-50"
               >
                 {loading ? (config.aiPowered ? 'Generating (AI)...' : 'Generating...') : 'Download DOCX'}
               </button>
@@ -340,7 +340,7 @@ export default function ToolPage() {
                   <button
                     type="button"
                     onClick={() => navigator.clipboard.writeText(clause.text)}
-                    className="text-xs bg-brand-gold text-white px-3 py-1 rounded-full hover:bg-yellow-600 transition-colors whitespace-nowrap"
+                    className="text-xs bg-da-teal text-white px-3 py-1 rounded-full hover:bg-da-teal-dark transition-colors whitespace-nowrap"
                   >
                     Copy
                   </button>

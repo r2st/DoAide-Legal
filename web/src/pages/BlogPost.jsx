@@ -21,7 +21,7 @@ function renderMarkdown(content) {
       const items = [];
       while (i < lines.length && lines[i].startsWith('- ')) {
         const text = lines[i].slice(2);
-        items.push(<li key={i} className="mb-1" dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-brand-gold hover:underline">$1</a>') }} />);
+        items.push(<li key={i} className="mb-1" dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-da-teal hover:underline">$1</a>') }} />);
         i++;
       }
       elements.push(<ul key={`ul-${i}`} className="list-disc pl-6 mb-4 text-gray-700 text-sm leading-relaxed">{items}</ul>);
@@ -30,7 +30,7 @@ function renderMarkdown(content) {
       const items = [];
       while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
         const text = lines[i].replace(/^\d+\.\s/, '');
-        items.push(<li key={i} className="mb-1" dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-brand-gold hover:underline">$1</a>') }} />);
+        items.push(<li key={i} className="mb-1" dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-da-teal hover:underline">$1</a>') }} />);
         i++;
       }
       elements.push(<ol key={`ol-${i}`} className="list-decimal pl-6 mb-4 text-gray-700 text-sm leading-relaxed">{items}</ol>);
@@ -44,7 +44,7 @@ function renderMarkdown(content) {
         <p key={i} className="text-gray-700 text-sm leading-relaxed mb-4" dangerouslySetInnerHTML={{
           __html: line
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-brand-gold hover:underline">$1</a>')
+            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-da-teal hover:underline">$1</a>')
         }} />
       );
     }
@@ -64,7 +64,7 @@ export default function BlogPost() {
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-800 mb-2">Post Not Found</h1>
-            <Link to="/blog" className="text-brand-gold hover:underline">Back to Blog</Link>
+            <Link to="/blog" className="text-da-teal hover:underline">Back to Blog</Link>
           </div>
         </main>
         <Footer />
@@ -117,7 +117,7 @@ export default function BlogPost() {
       <Header />
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8">
         <div className="mb-6">
-          <Link to="/blog" className="text-sm text-gray-500 hover:text-brand-gold">&larr; All Posts</Link>
+          <Link to="/blog" className="text-sm text-gray-500 hover:text-da-teal">&larr; All Posts</Link>
         </div>
 
         <article>
@@ -128,7 +128,7 @@ export default function BlogPost() {
             {post.category && (
               <>
                 <span>&middot;</span>
-                <span className="text-brand-gold">{post.category}</span>
+                <span className="text-da-teal">{post.category}</span>
               </>
             )}
           </div>
@@ -164,7 +164,7 @@ export default function BlogPost() {
         </div>
 
         <div className="mt-8 text-center">
-          <Link to="/blog" className="text-brand-gold hover:underline font-medium">&larr; Back to Blog</Link>
+          <Link to="/blog" className="text-da-teal hover:underline font-medium">&larr; Back to Blog</Link>
         </div>
       </main>
       <Footer />

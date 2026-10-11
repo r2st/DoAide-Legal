@@ -4,10 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          gold: '#F0B429',
-          dark: '#1a1a2e',
-        },
+        'da-teal': '#0D9488',
+        'da-teal-dark': '#0F766E',
+        'da-dark': '#111827',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },
