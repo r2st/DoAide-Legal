@@ -32,6 +32,18 @@ export default function Blog() {
         <title>Legal Tips Blog — Free Legal Guides for India | DoAide Legal</title>
         <meta name="description" content="Free legal guides about Indian contracts, privacy policies, NDAs, freelancer agreements, and compliance. Expert articles from DoAide Legal." />
         <link rel="canonical" href="https://legal.doaide.com/blog" />
+        <meta property="og:title" content="Legal Tips Blog — Free Legal Guides for India | DoAide Legal" />
+        <meta property="og:description" content="Free legal guides about Indian contracts, privacy policies, NDAs, freelancer agreements, and compliance. Expert articles from DoAide Legal." />
+        <meta property="og:url" content="https://legal.doaide.com/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="DoAide Legal" />
+        <meta property="og:image" content="https://legal.doaide.com/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Legal Tips Blog — Free Legal Guides for India | DoAide Legal" />
+        <meta name="twitter:description" content="Free legal guides about Indian contracts, privacy policies, NDAs, freelancer agreements, and compliance." />
+        <meta name="twitter:image" content="https://legal.doaide.com/og-image.svg" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       <Header />

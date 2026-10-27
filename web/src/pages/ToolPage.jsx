@@ -224,6 +224,18 @@ export default function ToolPage() {
         <title>{config.metaTitle}</title>
         <meta name="description" content={config.metaDescription} />
         <link rel="canonical" href={`https://legal.doaide.com/${toolId}`} />
+        <meta property="og:title" content={config.metaTitle} />
+        <meta property="og:description" content={config.metaDescription} />
+        <meta property="og:url" content={`https://legal.doaide.com/${toolId}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="DoAide Legal" />
+        <meta property="og:image" content="https://legal.doaide.com/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={config.metaTitle} />
+        <meta name="twitter:description" content={config.metaDescription} />
+        <meta name="twitter:image" content="https://legal.doaide.com/og-image.svg" />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebApplication',

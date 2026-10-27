@@ -111,6 +111,19 @@ export default function BlogPost() {
         <title>{post.title} | DoAide Legal</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://legal.doaide.com/blog/${post.slug}`} />
+        <meta property="og:title" content={`${post.title} | DoAide Legal`} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content={`https://legal.doaide.com/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="DoAide Legal" />
+        <meta property="og:image" content="https://legal.doaide.com/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="article:published_time" content={post.date} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | DoAide Legal`} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content="https://legal.doaide.com/og-image.svg" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         {faqJsonLd && <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>}
       </Helmet>

@@ -13,6 +13,18 @@ export default function Home() {
         <title>DoAide | Legal — Free Legal Document Generator for India</title>
         <meta name="description" content="Generate free legal documents for India — rental agreements, NDAs, invoices, salary slips, privacy policies, and more. No login required. Download as PDF or DOCX." />
         <link rel="canonical" href="https://legal.doaide.com" />
+        <meta property="og:title" content="DoAide Legal — Free Legal Document Generator for India" />
+        <meta property="og:description" content="Generate free legal documents for India — rental agreements, NDAs, invoices, salary slips, privacy policies, and more. No login required." />
+        <meta property="og:url" content="https://legal.doaide.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="DoAide Legal" />
+        <meta property="og:image" content="https://legal.doaide.com/og-image.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="DoAide Legal — Free Legal Document Generator for India" />
+        <meta name="twitter:description" content="Generate free legal documents for India — rental agreements, NDAs, invoices, salary slips, privacy policies, and more. No login required." />
+        <meta name="twitter:image" content="https://legal.doaide.com/og-image.svg" />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebApplication',
