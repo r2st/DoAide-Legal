@@ -91,6 +91,7 @@ function injectMeta(html, meta) {
     `<meta name="twitter:title" content="${esc(meta.title)}" />`,
     `<meta name="twitter:description" content="${esc(meta.description)}" />`,
     `<meta name="twitter:image" content="${esc(OG_IMAGE)}" />`,
+    `<script type="application/ld+json">${JSON.stringify(meta.jsonLd).replace(/</g, '\\u003c')}</script>`,
   ].join('\n    ');
 
   // Replace the existing <title> and static meta tags block with per-route tags
@@ -100,7 +101,9 @@ function injectMeta(html, meta) {
     .replace(/<link rel="canonical"[^>]*\/>/, '')
     .replace(/<meta property="og:[^>]*\/>/g, '')
     .replace(/<meta name="twitter:[^>]*\/>/g, '')
-    .replace('</head>', `    ${tags}\n  </head>`);
+    .replace('</head>', `    ${tags}\n  </head>`)
+    // A crawler-visible h1; React replaces #root's children on mount.
+    .replace('<div id="root"></div>', () => `<div id="root"><h1>${esc(meta.h1)}</h1></div>`);
 }
 
 function esc(str) {

@@ -9,9 +9,22 @@ import { toolForms } from './toolForms.js';
 import { blogPosts } from './blogPosts.js';
 
 const SITE = 'https://legal.doaide.com';
-const OG_IMAGE = `${SITE}/og-image.svg`;
+const OG_IMAGE = `${SITE}/og-image.png`;
+const ORG = { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' };
 
-/** Build route metadata map: path → { title, description, canonical, ogType } */
+const webApp = (name, url, description) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name,
+  url,
+  description,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  publisher: ORG,
+});
+
+/** Build route metadata map: path → { title, description, canonical, ogType, h1, jsonLd } */
 export function buildRouteMeta() {
   const routes = {};
 
@@ -22,7 +35,9 @@ export function buildRouteMeta() {
       'Generate free legal documents for India — rental agreements, NDAs, invoices, salary slips, privacy policies, and more. No login required. Download as PDF or DOCX.',
     canonical: SITE,
     ogType: 'website',
+    h1: 'Free Legal Document Generator for India',
   };
+  routes['/'].jsonLd = webApp('DoAide Legal', SITE, routes['/'].description);
 
   // Tool pages
   Object.entries(toolForms).forEach(([id, config]) => {
@@ -31,6 +46,8 @@ export function buildRouteMeta() {
       description: config.metaDescription,
       canonical: `${SITE}/${id}`,
       ogType: 'website',
+      h1: config.title,
+      jsonLd: webApp(config.title, `${SITE}/${id}`, config.metaDescription),
     };
   });
 
@@ -41,6 +58,15 @@ export function buildRouteMeta() {
       'Free legal guides about Indian contracts, privacy policies, NDAs, freelancer agreements, and compliance. Expert articles from DoAide Legal.',
     canonical: `${SITE}/blog`,
     ogType: 'website',
+    h1: 'Legal Tips Blog',
+  };
+  routes['/blog'].jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'DoAide Legal Blog',
+    url: `${SITE}/blog`,
+    description: routes['/blog'].description,
+    publisher: ORG,
   };
 
   // Blog posts
@@ -50,6 +76,19 @@ export function buildRouteMeta() {
       description: post.excerpt,
       canonical: `${SITE}/blog/${post.slug}`,
       ogType: 'article',
+      h1: post.title,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.excerpt,
+        url: `${SITE}/blog/${post.slug}`,
+        mainEntityOfPage: `${SITE}/blog/${post.slug}`,
+        image: OG_IMAGE,
+        author: ORG,
+        publisher: ORG,
+        ...(post.date ? { datePublished: post.date } : {}),
+      },
     };
   });
 
